@@ -37,6 +37,7 @@ func Init(conf *config.Config) error {
 
 	// Fanvil
 	r.HandleFunc("/cnf/{vendor}/{model}/{mac}.{suffix}", GetConfig).Methods("GET")
+	r.HandleFunc("/directory/{vendor}/home.{suffix}", GetDirectory).Methods("GET")
 
 	go func() {
 		srv := &http.Server{

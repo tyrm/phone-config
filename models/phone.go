@@ -57,7 +57,9 @@ func (p *Phone) GetLines() (*[]Line, error) {
 func GetPhone(mac, vendor, model string) (*Phone, error) {
 	var phone Phone
 
-	err := client.Get(&phone, "SELECT * FROM phones WHERE mac = $1 AND vendor = $2 AND model = $3;", mac, vendor, model)
+	err := client.Get(&phone, "SELECT id, mac, vendor, model, description, last_seen, created_at, updated_at " +
+		"FROM phones " +
+		"WHERE mac = $1 AND vendor = $2 AND model = $3;", mac, vendor, model)
 	if err == sql.ErrNoRows {
 		return nil, nil
 	} else if err != nil {
