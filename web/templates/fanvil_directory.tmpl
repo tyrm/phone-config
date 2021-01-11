@@ -3,15 +3,11 @@
 <FanvilIPPhoneDirectory >
     <Title>Hive Directory</Title>
     <Prompt>Hive Directory</Prompt>
+{{ range $index, $extensions := .Extensions }}
     <DirectoryEntry>
-        <Name>Ritz</Name>
-        <Telephone>7420</Telephone>
+        <Name>{{$extensions.DisplayName}}</Name>
+        <Telephone>{{$extensions.Extension}}</Telephone>
     </DirectoryEntry>
-    <DirectoryEntry>
-        <Name>Tyr</Name>
-        <Telephone>7897</Telephone>
-    </DirectoryEntry>
-    <!--Additional Menu Items may be added -->
-    <!--Additional soft key items may be added -->
+{{ end }}
 </FanvilIPPhoneDirectory>
 {{- end}}

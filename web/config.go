@@ -14,7 +14,7 @@ type ConfigTemplate struct {
 
 func GetConfig(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
-	logger.Errorf("got vars: %#v", vars)
+	logger.Tracef("got vars: %#v", vars)
 
 	// Get Phone
 	phone, err := models.GetPhone(vars["mac"], vars["vendor"], vars["model"])
