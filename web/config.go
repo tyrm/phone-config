@@ -13,10 +13,15 @@ type ConfigTemplate struct {
 }
 
 func GetConfig(w http.ResponseWriter, r *http.Request) {
-	vars := mux.Vars(r)
-	logger.Tracef("got vars: %#v", vars)
+	for name, values := range r.Header {
+		// Loop over all values for the name.
+		for _, value := range values {
+			logger.Tracef("  %s: %s", name, value)
+		}
+	}
 
 	// Get Phone
+	vars := mux.Vars(r)
 	phone, err := models.GetPhone(vars["mac"], vars["vendor"], vars["model"])
 	if err != nil {
 		msg := fmt.Sprintf("could not get phone: %s", err.Error())
