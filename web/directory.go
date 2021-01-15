@@ -13,9 +13,14 @@ type DirectoryTemplate struct {
 }
 
 func GetDirectory(w http.ResponseWriter, r *http.Request) {
-	vars := mux.Vars(r)
-	logger.Tracef("got vars: %#v", vars)
+	for name, values := range r.Header {
+		// Loop over all values for the name.
+		for _, value := range values {
+			logger.Tracef("  %s: %s", name, value)
+		}
+	}
 
+	vars := mux.Vars(r)
 	tmplVars := DirectoryTemplate{}
 
 	var err error

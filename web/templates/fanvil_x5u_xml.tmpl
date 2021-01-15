@@ -172,6 +172,14 @@
 {{ end }}
     </sip>
     <phone>
+        <xmlContact index="1">
+            <Name>The Hive</Name>
+            <Addr>https://{{.ProvisioningServer}}/directory/fanvil/home.xml</Addr>
+            <UserName></UserName>
+            <PassWd></PassWd>
+            <Sipline>-1</Sipline>
+            <BindLine>-1</BindLine>
+        </xmlContact>
         <date>
             <EnableSNTP>1</EnableSNTP>
             <SNTPServer>0.pool.ntp.org</SNTPServer>
@@ -206,6 +214,82 @@
                 <ICON>Green</ICON>
             </Fkey>
         </dssSide>
+        <internal index="1">
+            <Fkey index="1">
+                <Type>3</Type>
+                <Value>F_XMLCONTACTS:1</Value>
+                <Title>Hive Directory</Title>
+                <ICON>Yellow</ICON>
+            </Fkey>
+            <Fkey index="2">
+                <Type>1</Type>
+                <Value>7069@1/bf</Value>
+                <Title>Club 69</Title>
+                <ICON>Purple</ICON>
+            </Fkey>
+            <Fkey index="3">
+                <Type>1</Type>
+                <Value>70@1/c</Value>
+                <Title>-> Parking Lot</Title>
+                <ICON>Green</ICON>
+            </Fkey>
+            <Fkey index="4">
+                <Type>1</Type>
+                <Value>*280@1/bc</Value>
+                <Title>Show Live</Title>
+                <ICON>Red</ICON>
+            </Fkey>
+            <Fkey index="5">
+                <Type>1</Type>
+                <Value>*45@1</Value>
+                <Title>Show Q Login</Title>
+                <ICON>Red</ICON>
+            </Fkey>
+            <Fkey index="6">
+                <Type>0</Type>
+                <Value></Value>
+                <Title>You Are Loved</Title>
+                <ICON>Blue</ICON>
+            </Fkey>
+        </internal>
+        <internal index="2">
+            <Fkey index="1">
+                <Type>1</Type>
+                <Value>71@1/bc</Value>
+                <Title>Parking Spot 1</Title>
+                <ICON>Red</ICON>
+            </Fkey>
+            <Fkey index="2">
+                <Type>1</Type>
+                <Value>72@1/bc</Value>
+                <Title>Parking Spot 2</Title>
+                <ICON>Red</ICON>
+            </Fkey>
+            <Fkey index="3">
+                <Type>1</Type>
+                <Value>73@1/bc</Value>
+                <Title>Parking Spot 3</Title>
+                <ICON>Yellow</ICON>
+            </Fkey>
+            <Fkey index="4">
+                <Type>1</Type>
+                <Value>74@1/bc</Value>
+                <Title>Parking Spot 4</Title>
+                <ICON>Green</ICON>
+            </Fkey>
+            <Fkey index="5">
+                <Type>1</Type>
+                <Value>75@1/bc</Value>
+                <Title>Parking Spot 5</Title>
+                <ICON>Blue</ICON>
+            </Fkey>
+            <Fkey index="6">
+                <Type>1</Type>
+                <Value>76@1/bc</Value>
+                <Title>Parking Spot 6</Title>
+                <ICON>Purple</ICON>
+            </Fkey>
+        </internal>
     </dsskey>
     <web>
         <WebServerType>0</WebServerType>
