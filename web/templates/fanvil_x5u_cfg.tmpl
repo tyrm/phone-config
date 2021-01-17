@@ -1,0 +1,264 @@
+{{ define "fanvil_x5u_cfg_generic" -}}
+<<VOIP CONFIG FILE>>Version:2.0002
+
+<AUTOUPDATE CONFIG MODULE>
+Auto Etc Url   :https://{{.ProvisioningServer}}/files/fanvil_x5u_totaro.bmp
+
+<<END OF FILE>>
+
+{{- end }}
+
+{{ define "fanvil_x5u_cfg_phone" -}}
+<<VOIP CONFIG FILE>>Version:2.0002
+
+<MM CONFIG MODULE>
+Audio Codec Sets   :opus,PCMU,PCMA,G726-16,G726-24,G726-32,G726-40,G729,G723,iLBC
+
+<SIP CONFIG MODULE>
+--SIP Line List--  :
+{{- range $index, $line := .Lines }}
+SIP{{inc $index}} Phone Number       :{{if gt $line.Extension 0}}{{$line.Extension}}{{end}}
+SIP{{inc $index}} Display Name       :{{$line.DisplayName}}
+SIP{{inc $index}} Sip Name           :
+SIP{{inc $index}} Register Addr      :{{$line.Server}}
+SIP{{inc $index}} Register Port      :5060
+SIP{{inc $index}} Register User      :{{if gt $line.Extension 0}}{{$line.Extension}}{{end}}
+SIP{{inc $index}} Register Pswd      :{{$line.Secret}}
+SIP{{inc $index}} Register TTL       :3600
+SIP{{inc $index}} Need Reg On        :0
+SIP{{inc $index}} Backup Addr        :
+SIP{{inc $index}} Backup Port        :5060
+SIP{{inc $index}} Backup Transport   :0
+SIP{{inc $index}} Backup TTL         :3600
+SIP{{inc $index}} Backup Need Reg On :0
+SIP{{inc $index}} Enable Reg         :{{if $line.Enabled}}1{{else}}0{{end}}
+SIP{{inc $index}} Proxy Addr         :
+SIP{{inc $index}} Proxy Port         :5060
+SIP{{inc $index}} Proxy User         :
+SIP{{inc $index}} Proxy Pswd         :
+SIP{{inc $index}} Proxy Need Reg On  :0
+SIP{{inc $index}} BakProxy Addr      :
+SIP{{inc $index}} BakProxy Port      :5060
+SIP{{inc $index}} BakProxy Need Reg On:0
+SIP{{inc $index}} Enable Failback    :1
+SIP{{inc $index}} Failback Interval  :1800
+SIP{{inc $index}} Signal Failback    :0
+SIP{{inc $index}} Signal Retry Counts:3
+SIP{{inc $index}} SigCrypto Key      :
+SIP{{inc $index}} Media Crypto       :2
+SIP{{inc $index}} MedCrypto Key      :
+SIP{{inc $index}} SRTP Auth-Tag      :0
+SIP{{inc $index}} Enable RFC5939     :0
+SIP{{inc $index}} Local Domain       :
+SIP{{inc $index}} Always FWD         :0
+SIP{{inc $index}} Busy FWD           :0
+SIP{{inc $index}} No Answer FWD      :0
+SIP{{inc $index}} Always FWD Num     :
+SIP{{inc $index}} Busy FWD Num       :
+SIP{{inc $index}} NoAnswer FWD Num   :
+SIP{{inc $index}} FWD Timer          :5
+SIP{{inc $index}} Hotline Num        :
+SIP{{inc $index}} Enable Hotline     :0
+SIP{{inc $index}} WarmLine Time      :0
+SIP{{inc $index}} Pickup Num         :
+SIP{{inc $index}} Join Num           :
+SIP{{inc $index}} Intercom Num       :
+SIP{{inc $index}} Ring Type          :default
+SIP{{inc $index}} NAT UDPUpdate      :2
+SIP{{inc $index}} UDPUpdate TTL      :30
+SIP{{inc $index}} Server Type        :0
+SIP{{inc $index}} User Agent         :
+SIP{{inc $index}} PRACK              :0
+SIP{{inc $index}} Keep AUTH          :0
+SIP{{inc $index}} Session Timer      :0
+SIP{{inc $index}} S Timer Expires    :0
+SIP{{inc $index}} Enable GRUU        :0
+SIP{{inc $index}} DTMF Mode          :3
+SIP{{inc $index}} DTMF Info Mode     :0
+SIP{{inc $index}} NAT Type           :0
+SIP{{inc $index}} Enable Rport       :1
+SIP{{inc $index}} Subscribe          :0
+SIP{{inc $index}} Sub Expire         :3600
+SIP{{inc $index}} Single Codec       :0
+SIP{{inc $index}} CLIR               :0
+SIP{{inc $index}} Strict Proxy       :1
+SIP{{inc $index}} Direct Contact     :0
+SIP{{inc $index}} History Info       :0
+SIP{{inc $index}} DNS SRV            :0
+SIP{{inc $index}} DNS Mode           :0
+SIP{{inc $index}} XFER Expire        :0
+SIP{{inc $index}} Ban Anonymous      :0
+SIP{{inc $index}} Dial Off Line      :0
+SIP{{inc $index}} Quota Name         :0
+SIP{{inc $index}} Presence Mode      :0
+SIP{{inc $index}} RFC Ver            :1
+SIP{{inc $index}} Phone Port         :0
+SIP{{inc $index}} Signal Port        :5060
+SIP{{inc $index}} Transport          :0
+SIP{{inc $index}} Use SRV Mixer      :0
+SIP{{inc $index}} SRV Mixer Uri      :
+SIP{{inc $index}} Long Contact       :0
+SIP{{inc $index}} Auto TCP           :0
+SIP{{inc $index}} Uri Escaped        :1
+SIP{{inc $index}} Click to Talk      :0
+SIP{{inc $index}} MWI Num            :*97
+SIP{{inc $index}} CallPark Num       :
+SIP{{inc $index}} Retrieve Num       :
+SIP{{inc $index}} MSRPHelp Num       :
+SIP{{inc $index}} User Is Phone      :0
+SIP{{inc $index}} Auto Answer        :0
+SIP{{inc $index}} NoAnswerTime       :5
+SIP{{inc $index}} MissedCallLog      :1
+SIP{{inc $index}} SvcCode Mode       :0
+SIP{{inc $index}} DNDOn SvcCode      :
+SIP{{inc $index}} DNDOff SvcCode     :
+SIP{{inc $index}} CFUOn SvcCode      :
+SIP{{inc $index}} CFUOff SvcCode     :
+SIP{{inc $index}} CFBOn SvcCode      :
+SIP{{inc $index}} CFBOff SvcCode     :
+SIP{{inc $index}} CFNOn SvcCode      :
+SIP{{inc $index}} CFNOff SvcCode     :
+SIP{{inc $index}} ANCOn SvcCode      :
+SIP{{inc $index}} ANCOff SvcCode     :
+SIP{{inc $index}} Send ANOn Code     :
+SIP{{inc $index}} Send ANOffCode     :
+SIP{{inc $index}} CW On Code         :
+SIP{{inc $index}} CW Off Code        :
+SIP{{inc $index}} VoiceCodecMap      :opus,PCMU,PCMA,G726-32,G729,G723,iLBC,AMR,G722,AMR-WB
+SIP{{inc $index}} VideoCodecMap      :
+SIP{{inc $index}} BLFList Uri        :
+SIP{{inc $index}} BLF Server         :
+SIP{{inc $index}} Respond 182        :0
+SIP{{inc $index}} Enable BLFList     :0
+SIP{{inc $index}} Caller Id Type     :4
+SIP{{inc $index}} Syn Clock Time     :0
+SIP{{inc $index}} Use VPN            :1
+SIP{{inc $index}} Enable DND         :0
+SIP{{inc $index}} Inactive Hold      :0
+SIP{{inc $index}} Req With Port      :1
+SIP{{inc $index}} Update Reg Expire  :1
+SIP{{inc $index}} Enable SCA         :0
+SIP{{inc $index}} Sub CallPark       :0
+SIP{{inc $index}} Sub CC Status      :0
+SIP{{inc $index}} Feature Sync       :0
+SIP{{inc $index}} Enable XferBack    :0
+SIP{{inc $index}} XferBack Time      :35
+SIP{{inc $index}} Use Tel Call       :0
+SIP{{inc $index}} Enable Preview     :0
+SIP{{inc $index}} Preview Mode       :1
+SIP{{inc $index}} TLS Version        :2
+SIP{{inc $index}} CSTA Number        :
+SIP{{inc $index}} Enable ChgPort     :0
+SIP{{inc $index}} VQ Name            :
+SIP{{inc $index}} VQ Server          :
+SIP{{inc $index}} VQ Server Port     :5060
+SIP{{inc $index}} VQ HTTP Server     :
+SIP{{inc $index}} Flash Mode         :0
+SIP{{inc $index}} Content Type       :
+SIP{{inc $index}} Content Body       :
+SIP{{inc $index}} Unregister On Boot :0
+SIP{{inc $index}} Enable MAC Header  :0
+SIP{{inc $index}} Enable Register MAC:0
+SIP{{inc $index}} Record Start       :Record:on
+SIP{{inc $index}} Record Stop        :Record:off
+SIP{{inc $index}} BLF Dialog Match   :1
+SIP{{inc $index}} Ptime              :0
+SIP{{inc $index}} Enable Deal 180    :1
+SIP{{inc $index}} Keep Single Contact:0
+SIP{{inc $index}} Session Timer T1   :500
+SIP{{inc $index}} Session Timer T2   :4000
+SIP{{inc $index}} Session Timer T4   :5000
+SIP{{inc $index}} Unavailable Mode   :0
+{{- end }}
+
+<PHONE FEATURE MODULE>
+--DateTime Config--:
+Time Zone          :32
+--Xml PhoneBook--  :
+XML-PBook1 Name               :The Hive
+XML-PBook1 Addr               :https://{{.ProvisioningServer}}/directory/fanvil/home.xml
+XML-PBook1 UserName           :
+XML-PBook1 PassWd             :
+XML-PBook1 Sipline            :-1
+XML-PBook1 BindLine           :-1
+
+<DSSKEY CONFIG MODULE>
+--Sidekey Config1--:
+Fkey1 Type               :2
+Fkey1 Value              :SIP1
+Fkey1 Title              :Line 1
+Fkey1 ICON               :Green
+Fkey2 Type               :2
+Fkey2 Value              :SIP1
+Fkey2 Title              :Line 2
+Fkey2 ICON               :Green
+Fkey3 Type               :2
+Fkey3 Value              :SIP1
+Fkey3 Title              :Line 3
+Fkey3 ICON               :Green
+Fkey4 Type               :2
+Fkey4 Value              :SIP1
+Fkey4 Title              :Line 4
+Fkey4 ICON               :Green
+--Dsskey Config1--:
+Fkey1 Type               :3
+Fkey1 Value              :F_XMLCONTACTS:1
+Fkey1 Title              :Hive Directory
+Fkey1 ICON               :Yellow
+Fkey2 Type               :1
+Fkey2 Value              :7069@1/bf
+Fkey2 Title              :Club 69
+Fkey2 ICON               :Purple
+Fkey3 Type               :1
+Fkey3 Value              :70@1/c
+Fkey3 Title              :-> Parking Lot
+Fkey3 ICON               :Green
+Fkey4 Type               :1
+Fkey4 Value              :*280@1/bc
+Fkey4 Title              :Show Live
+Fkey4 ICON               :Red
+Fkey5 Type               :1
+Fkey5 Value              :*45@1
+Fkey5 Title              :Show Q Login
+Fkey5 ICON               :Red
+Fkey6 Type               :0
+Fkey6 Value              :
+Fkey6 Title              :You Are Loved
+Fkey6 ICON               :Blue
+--Dsskey Config2--:
+Fkey1 Type               :1
+Fkey1 Value              :71@1/bc
+Fkey1 Title              :Parking Spot 1
+Fkey1 ICON               :Red
+Fkey2 Type               :1
+Fkey2 Value              :72@1/bc
+Fkey2 Title              :Parking Spot 2
+Fkey2 ICON               :Red
+Fkey3 Type               :1
+Fkey3 Value              :73@1/bc
+Fkey3 Title              :Parking Spot 3
+Fkey3 ICON               :Yellow
+Fkey4 Type               :1
+Fkey4 Value              :74@1/bc
+Fkey4 Title              :Parking Spot 4
+Fkey4 ICON               :Green
+Fkey5 Type               :1
+Fkey5 Value              :75@1/bc
+Fkey5 Title              :Parking Spot 5
+Fkey5 ICON               :Blue
+Fkey6 Type               :1
+Fkey6 Value              :76@1/bc
+Fkey6 Title              :Parking Spot 6
+Fkey6 ICON               :Purple
+
+<AUTOUPDATE CONFIG MODULE>
+Auto Etc Url      :https://{{.ProvisioningServer}}/files/fanvil_x5u_totaro.bmp
+Flash Server IP    :{{.ProvisioningServer}}
+Flash File Name    :/cnf/fanvil/x5u/$mac.cfg
+Flash Protocol     :5
+Flash Mode         :2
+Flash Interval     :1
+
+
+<<END OF FILE>>
+{{- end }}
